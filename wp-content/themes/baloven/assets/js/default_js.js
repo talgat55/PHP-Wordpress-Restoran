@@ -9,91 +9,16 @@ jQuery(document).ready(function(){
 calculatemapposition();
 mobileMenu();
 animationblocks();
-initSlider();
+initSlider(); 
 initForm();
 initwidhttextarea();
-
+initModalBlock();
  
 
 jQuery('.telephone').inputmask({"mask": "+7 (999) 999-9999"});
 
+ 
 
-// jQuery('.telephone').mask('+7(000) 000-00-00');
-
-
-/*
-* Modal
-*/
-
-
-	jQuery(".modal-form .close").click(function() {
-		jQuery('.all-overlay').removeClass('overlay-display');
-
-				jQuery('.modal-form').css({top: '-165%' }); 
-		return false;
-	});
-
-
-    jQuery(".block-booking a").click(function() {
-       
-			var windowwidth 	= jQuery(window).width();
-			var modalwidht 	= jQuery('.modal-form').width();
-			var windowheight 	= jQuery(window).height();
-			var topbarheight 	= jQuery('.top-bar').height();
-			var windowmodalheight 	= jQuery('.modal-form').height();
-			var redyleft = (windowwidth- modalwidht)/2;
-			var redytop = (windowheight- windowmodalheight)/2;
-
-		if(windowwidth >= 900){
-
-
-			jQuery('.modal-form').css({ left: redyleft, top: redytop }); 
-		}else{
-			jQuery('.modal-form').css({  top: topbarheight }); 
-		}
-
-
-			jQuery('.all-overlay').addClass('overlay-display');
-
-
-        return false;
-    });
-	
-
-	jQuery( ".all-overlay" ).click(function(){  
-			jQuery('.all-overlay').removeClass('overlay-display');
-
-					jQuery('.modal-form').css({top: '-165%' }); 
-			return false;
-});
-
-	  
-
-//---------
-// Carousel Menu 
-//--------
-
-
-jQuery('.menu-carousel').owlCarousel({
-    loop:true, 
-    nav:false,
-    dots:false, 
-    responsive:{
-        0:{
-            items: 1
-        },
-        600:{
-            items: 2
-
-        },
-        900:{
-            items:3
-        },
-        1100:{
-            items:4
-        }
-    }
-});
 //---------
 // Carousel Action 
 //--------
@@ -222,7 +147,90 @@ jQuery(window).resize(function() {
     mobileMenu();
     animationblocks();
     initwidhttextarea();
+    initModalBlock();
 });
+
+jQuery(window).load(function() {
+initCarouselMenu();
+});
+//---------
+// Carousel Menu 
+//--------
+
+function initCarouselMenu(){
+jQuery('.menu-carousel').owlCarousel({
+    loop:true, 
+    nav:false,
+    dots:false, 
+    responsive:{
+        0:{
+            items: 1
+        },
+        600:{
+            items: 2
+
+        },
+        900:{
+            items:3
+        },
+        1100:{
+            items:4
+        }
+    }
+});
+
+}
+
+/*
+* Modal
+*/
+function initModalBlock(){
+
+	jQuery(".modal-form .close").click(function() {
+
+		jQuery('.all-overlay').removeClass('overlay-display');
+
+		jQuery('.modal-form').css({top: '-165%' }); 
+
+		return false;
+
+	});
+
+
+    jQuery(".block-booking a").click(function() {
+       
+			var windowwidth 	= jQuery(window).width();
+			var modalwidht 	= jQuery('.modal-form').width();
+			var windowheight 	= jQuery(window).height();
+			var topbarheight 	= jQuery('.top-bar').height();
+			var windowmodalheight 	= jQuery('.modal-form').height();
+			var redyleft = (windowwidth- modalwidht)/2;
+			var redytop = (windowheight- windowmodalheight)/2;
+
+		if(windowwidth >= 900){
+
+
+			jQuery('.modal-form').css({ left: redyleft, top: redytop }); 
+		}else{
+			jQuery('.modal-form').css({  top: topbarheight }); 
+		}
+
+
+			jQuery('.all-overlay').addClass('overlay-display');
+
+
+        return false;
+    });
+	
+
+	jQuery( ".all-overlay" ).click(function(){  
+			jQuery('.all-overlay').removeClass('overlay-display');
+
+					jQuery('.modal-form').css({top: '-165%' }); 
+			return false;
+});
+
+}
 
 /*
 *  Width textarea

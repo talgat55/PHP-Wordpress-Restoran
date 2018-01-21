@@ -2008,7 +2008,9 @@ span.wpcf7-list-item{
     padding: 30px;
 }
 @media (max-width: 565px){
-
+  body{
+    overflow-x: hidden;
+  }
 	.banket li{
 		width: 100%;
 	}	

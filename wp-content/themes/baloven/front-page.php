@@ -43,8 +43,7 @@
 
 
 	</div> 
-	</section>
-
+	</section> 
 	 
 
 	<section class="about-home" >
