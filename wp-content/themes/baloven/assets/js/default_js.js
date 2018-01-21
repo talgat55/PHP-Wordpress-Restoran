@@ -29,7 +29,7 @@ jQuery('.telephone').inputmask({"mask": "+7 (999) 999-9999"});
 	jQuery(".modal-form .close").click(function() {
 		jQuery('.all-overlay').removeClass('overlay-display');
 
-				jQuery('.modal-form').css({top: '-135%' }); 
+				jQuery('.modal-form').css({top: '-165%' }); 
 		return false;
 	});
 
@@ -63,7 +63,7 @@ jQuery('.telephone').inputmask({"mask": "+7 (999) 999-9999"});
 	jQuery( ".all-overlay" ).click(function(){  
 			jQuery('.all-overlay').removeClass('overlay-display');
 
-					jQuery('.modal-form').css({top: '-135%' }); 
+					jQuery('.modal-form').css({top: '-165%' }); 
 			return false;
 });
 

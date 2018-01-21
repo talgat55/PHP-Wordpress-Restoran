@@ -14,17 +14,17 @@
 
 				<div class="static-sec clearfix">
 					<div class="col-md-4">
-						<img src="<?php  echo get_theme_file_uri( '/assets/images/am.png' ) ?>">
+						<img  class="animation-block  opacity-zero" data-animation="zoomIn" src="<?php  echo get_theme_file_uri( '/assets/images/am.png' ) ?>">
 
 						<p>120 посадочных мест</p>
 					</div>
 					<div class="col-md-4">
-						<img src="<?php  echo get_theme_file_uri( '/assets/images/mn.png' ) ?>">
+						<img  class="animation-block  opacity-zero" data-animation="zoomIn" src="<?php  echo get_theme_file_uri( '/assets/images/mn.png' ) ?>">
 
 						<p>Скидка на меню</p>
 					</div>
 					<div class="col-md-4">
-						<img src="<?php  echo get_theme_file_uri( '/assets/images/pl.png' ) ?>">
+						<img   class="animation-block  opacity-zero" data-animation="zoomIn" src="<?php  echo get_theme_file_uri( '/assets/images/pl.png' ) ?>">
 
 						<p>Площадь зала 200м2</p>
 					</div>
