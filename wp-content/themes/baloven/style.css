@@ -97,8 +97,15 @@ Styles based on Normalize v5.0.0 @link https://github.com/necolas/normalize.css
 		font-style: normal;
 		font-weight: normal;
 }
+.nav-link.right,
+.nav-link.left,
+textarea,
+input{
+  outline: 0;
+}
+
 div.wpcf7 .ajax-loader{
-      background: url(./assets/images/ajax-loader-cf.gif);
+      background-image: url("data:image/gif;base64,R0lGODlhEAAQAPQAAP///3d3d/r6+pSUlL29vXp6eouLi+jo6NDQ0IKCgrW1ta2trfDw8MfHx+Dg4J2dnaSkpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAAFUCAgjmRpnqUwFGwhKoRgqq2YFMaRGjWA8AbZiIBbjQQ8AmmFUJEQhQGJhaKOrCksgEla+KIkYvC6SJKQOISoNSYdeIk1ayA8ExTyeR3F749CACH5BAkKAAAALAAAAAAQABAAAAVoICCKR9KMaCoaxeCoqEAkRX3AwMHWxQIIjJSAZWgUEgzBwCBAEQpMwIDwY1FHgwJCtOW2UDWYIDyqNVVkUbYr6CK+o2eUMKgWrqKhj0FrEM8jQQALPFA3MAc8CQSAMA5ZBjgqDQmHIyEAIfkECQoAAAAsAAAAABAAEAAABWAgII4j85Ao2hRIKgrEUBQJLaSHMe8zgQo6Q8sxS7RIhILhBkgumCTZsXkACBC+0cwF2GoLLoFXREDcDlkAojBICRaFLDCOQtQKjmsQSubtDFU/NXcDBHwkaw1cKQ8MiyEAIfkECQoAAAAsAAAAABAAEAAABVIgII5kaZ6AIJQCMRTFQKiDQx4GrBfGa4uCnAEhQuRgPwCBtwK+kCNFgjh6QlFYgGO7baJ2CxIioSDpwqNggWCGDVVGphly3BkOpXDrKfNm/4AhACH5BAkKAAAALAAAAAAQABAAAAVgICCOZGmeqEAMRTEQwskYbV0Yx7kYSIzQhtgoBxCKBDQCIOcoLBimRiFhSABYU5gIgW01pLUBYkRItAYAqrlhYiwKjiWAcDMWY8QjsCf4DewiBzQ2N1AmKlgvgCiMjSQhACH5BAkKAAAALAAAAAAQABAAAAVfICCOZGmeqEgUxUAIpkA0AMKyxkEiSZEIsJqhYAg+boUFSTAkiBiNHks3sg1ILAfBiS10gyqCg0UaFBCkwy3RYKiIYMAC+RAxiQgYsJdAjw5DN2gILzEEZgVcKYuMJiEAOwAAAAAAAAAAAA==");
 }
  [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "fontello";
@@ -437,9 +444,9 @@ header{
 	transition: all 0.3s ease;
 }
 .btn.btn-link:hover{
-	background-color: #000;
-    color: #fff;
-    text-decoration: underline;
+  background-color: #5f230b;
+	border-color: #5f230b;
+    color: #fff; 
 }
 .sub-menu li{
 	float: none!important;
@@ -472,11 +479,11 @@ header{
     height: 16px;
 } 
 .sub-menu{
-	position: absolute;
-    padding: 9px;
+	  position: absolute;
+    padding: 12px 18px;
     z-index: 22;
     background-color: #fff;
-    width: 140px;
+    width: 110px;
 }
 .sub-menu li:hover:after,
 .sub-menu li:after{     
@@ -485,6 +492,11 @@ header{
 }
 .sub-menu li:first-child:before{
 		display: none;
+}
+.sub-menu li{
+  margin-right: 0!important;
+text-align: left;
+
 }
 #mobile-bar{
 	float: right;
@@ -662,6 +674,8 @@ header{
     font-size: 16px;
     border: 1px solid #000;
     vertical-align: middle;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     font-weight: 400;
 }
@@ -722,13 +736,19 @@ header{
 /*
 * Menu Row
 */
+.img-border{
+  border: 1px solid rgba(0,0,0,0.3);
+}
 
+.owl-item{
+
+
+}
 .menu-carousel .item{
-	text-align: center;
-	width: 255px;
+	text-align: center; 
 	border: 2px solid #b0b0b0;
 	margin-top: 22px;
-	margin-right: 35px;	
+	/*margin-right: 35px;	*/
 }
 .menu-carousel .item img{
 	display: inline-block!important;
@@ -806,6 +826,21 @@ header{
 .title-menu-walp h3{
 	font-family: 'Raleway SemiBold';
 }
+.menu-carousel-arrow-left{
+    position: absolute;
+    top: 50%;
+    left: -45px;
+    margin-top: -9px;
+}
+
+.menu-carousel-arrow-right{
+    position: absolute;
+    top: 50%;
+    right: -45px;
+    margin-top: -9px;
+}
+
+
 
 /*
 * Gallery
@@ -1254,7 +1289,20 @@ header{
 .static-sec div{
 	text-align: center;
 }
+.img-block-icon{
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  transition: all 300ms;
+} 
+.icon-block-banket .animated {
 
+      animation-fill-mode: none!important;
+}
+.icon-block-banket:hover .img-block-icon{
+  -webkit-transform:  scale(1.1); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+      -ms-transform:  scale(1.1); /* IE 9 */
+          transform:  scale(1.1); 
+}
 .static-sec p{
 	width: 130px;
     margin: 0 auto;
@@ -1547,6 +1595,15 @@ span.wpcf7-list-item{
     padding-left: 15px;
 }
 @media  (min-width: 1171px)  {
+  .sub-menu{
+    top: 67px; 
+    left: -18px;
+    -webkit-box-shadow:0 -1px 2px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 -1px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -1px 2px 0px rgba(0, 0, 0, 0.2);
+ 
+
+  }
 	 .header-block{
  		display: table;
  		width: 100%;
@@ -1771,6 +1828,16 @@ span.wpcf7-list-item{
 }
 
 @media (max-width: 899px){
+
+.menu-carousel-arrow-left{  
+    left: -29px; 
+}
+
+.menu-carousel-arrow-right{
+    right: -29px;
+}
+
+
 	.about-row img{
 		width: 100%;
 

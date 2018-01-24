@@ -14,19 +14,25 @@
 
 				<div class="static-sec clearfix">
 					<div class="col-md-4">
-						<img  class="animation-block  opacity-zero" data-animation="zoomIn" src="<?php  echo get_theme_file_uri( '/assets/images/am.png' ) ?>">
+						<div class="icon-block-banket">
+						<img  class="animation-block img-block-icon opacity-zero" data-animation="zoomIn" src="<?php  echo get_theme_file_uri( '/assets/images/am.png' ) ?>">
 
 						<p>120 посадочных мест</p>
+						</div>
 					</div>
 					<div class="col-md-4">
-						<img  class="animation-block  opacity-zero" data-animation="zoomIn" src="<?php  echo get_theme_file_uri( '/assets/images/mn.png' ) ?>">
+						<div class="icon-block-banket">
+						<img  class="animation-block img-block-icon   opacity-zero" data-animation="zoomIn" src="<?php  echo get_theme_file_uri( '/assets/images/mn.png' ) ?>">
 
 						<p>Скидка на меню</p>
+						</div>
 					</div>
 					<div class="col-md-4">
-						<img   class="animation-block  opacity-zero" data-animation="zoomIn" src="<?php  echo get_theme_file_uri( '/assets/images/pl.png' ) ?>">
+						<div class="icon-block-banket">
+						<img   class="animation-block img-block-icon   opacity-zero" data-animation="zoomIn" src="<?php  echo get_theme_file_uri( '/assets/images/pl.png' ) ?>">
 
 						<p>Площадь зала 200м2</p>
+						</div>
 					</div>
 
 
@@ -97,7 +103,7 @@
 
 				</div>
 
-				<div class="form-banket-row ">
+				<div class="form-banket-row page-bunket">
 					
 					<h1 class="section-title">Заявка на проведение банкета</h1>
 					<?php  echo do_shortcode('[contact-form-7 id="58" title="Контактная форма 1"]'); ?>

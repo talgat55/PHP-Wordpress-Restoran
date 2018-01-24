@@ -70,9 +70,9 @@
 
 	<section class="menu-home" >
 		<div class="container">
-			 <div class="row">
+			 <div class="row padding-row">
 				<h1 class="section-title">Меню</h1>
-		 
+		 		<div style="position: relative;">
 				<div class="owl-carousel owl-theme menu-carousel">
 
 					<?php
@@ -92,7 +92,7 @@
 							echo '<div class="item">';
 								 if ( $image ) : 
 
-								    echo '<img src="'.esc_url( $image ).'"   />';
+								    echo '<img class="img-border" src="'.esc_url( $image ).'"   />';
 								   /* <img src="<?php  echo get_theme_file_uri( '/assets/images/menu.jpg' ) ?>">*/
 
 								 endif;  
@@ -107,7 +107,12 @@
 					?>
   
 				</div>
+				
+					<a href="#" class="menu-carousel-arrow-left"><img src="<?php  echo get_theme_file_uri( '/assets/images/a-l.jpg' ) ?>"></a>
+					<a href="#" class="menu-carousel-arrow-right"><img src="<?php  echo get_theme_file_uri( '/assets/images/a-r.jpg' ) ?>"></a>
+				</div>
 						<a href="#" class="btn btn-link-menu"><img src="<?php  echo get_theme_file_uri( '/assets/images/left-arrow.png' ) ?>">Все меню</a>
+
   
 			</div>
 		</div>

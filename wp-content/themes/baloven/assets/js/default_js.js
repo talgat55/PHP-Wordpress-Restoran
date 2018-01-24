@@ -11,7 +11,7 @@ mobileMenu();
 animationblocks();
 initSlider(); 
 initForm();
-initwidhttextarea();
+
 initModalBlock();
  
 
@@ -133,8 +133,15 @@ if(jQuery('#map').length){
 
     myMap.behaviors.disable('scrollZoom');  
     myMap.behaviors.disable('multiTouch');
-    myMap.behaviors.disable('drag');
+    
+    if(jQuery(window).width() <= 600){
+
+   	    myMap.behaviors.disable('drag'); 	
+    }
+
 });
+
+
 
 }
 
@@ -152,16 +159,19 @@ jQuery(window).resize(function() {
 
 jQuery(window).load(function() {
 initCarouselMenu();
+initwidhttextarea();
 });
 //---------
 // Carousel Menu 
 //--------
 
 function initCarouselMenu(){
-jQuery('.menu-carousel').owlCarousel({
+	var carouselmenu = jQuery('.menu-carousel');
+carouselmenu.owlCarousel({
     loop:true, 
     nav:false,
     dots:false, 
+     margin:34,
     responsive:{
         0:{
             items: 1
@@ -178,6 +188,18 @@ jQuery('.menu-carousel').owlCarousel({
         }
     }
 });
+
+    jQuery(".menu-carousel-arrow-right").click(function() { 
+        carouselmenu.trigger('next.owl.carousel');
+        return false;
+    });
+	
+    jQuery(".menu-carousel-arrow-left").click(function() {
+        carouselmenu.trigger('prev.owl.carousel');
+        return false;
+    });
+
+
 
 }
 
@@ -237,8 +259,12 @@ function initModalBlock(){
 */
 function initwidhttextarea(){
 var windowwidthmodal 	= jQuery('.form-banket-row').width();
-var redywidth = windowwidthmodal-23;
+var windowwidtblock 	= jQuery('.form-banket-row.page-bunket').width();
+var redywidth = windowwidthmodal-21; 
+var redywidthblock = windowwidtblock-21; 
 jQuery('.wpcf7-form-control.wpcf7-textarea').css({ width: redywidth });
+
+jQuery('.form-banket-row.page-bunket .wpcf7-form-control.wpcf7-textarea').css({ width: redywidthblock });
 
 
 }

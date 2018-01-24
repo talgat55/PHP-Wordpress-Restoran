@@ -61,6 +61,14 @@ function th_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'th_scripts' );
 
+function my_enqueue() {
+ 
+    wp_enqueue_script( 'appear', get_theme_file_uri(  '/assets/js/admin.js'),array(), '' ); 
+}
+
+add_action('admin_enqueue_scripts', 'my_enqueue');
+
+
 /*
 * Register nav menu
 */

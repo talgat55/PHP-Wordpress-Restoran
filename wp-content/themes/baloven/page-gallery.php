@@ -20,8 +20,6 @@
 						 	$thumb = $image = $img_url = '';
 							$i = 0;
 								$args2 = array(  
-									'meta_key'  		=> 'check_shhow',
-									'meta_value' 		=> '1',
 									'post_type'        	=> 'gallery'
 								);
 							$the_query_gallery = new WP_Query($args2);
