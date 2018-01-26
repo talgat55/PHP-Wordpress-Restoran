@@ -1,12 +1,37 @@
+
 jQuery(document).ready(function(){
 	"use strict"; 
  
+/*
+
+	jQuery(".rwmb-file-input-select.button").click(function() {
+		var value = jQuery(this).parent().find(' input').val();
+		jQuery(this).parent().append('<div class="img"><img  width="90" src="'+value+'" /></div>');
+		///jQuery(this).parent().find('.rwmb-file_input-clone:last-child').css("background-color", "red");
+		//jQuery(this).parent().find('div.rwmb-clone').css("background-color", "red");
+		 
+	});*/
+  
+if(jQuery('#gallery-admin').length){
 if(jQuery('.rwmb-file_input-clone').length){
+ImgSolution();
+
+
+
+function ImgSolution(){
+
 
 	jQuery('.rwmb-file_input-clone').each(function(){
+	
 			var value = jQuery(this).find('input').val();
+			var matches = value.match(/watch\?v=([a-zA-Z0-9\-_]+)/);
+			if (matches)
+			{
+					var videoid = value.match(/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/);
 
-			jQuery(this).append('<div><img  width="90" src="'+value+'" /></div>')
+					value = 'https://img.youtube.com/vi/'+videoid[4]+'/0.jpg';
+			}
+			jQuery(this).append('<div class="img"><img  width="90" src="'+value+'" /></div>');
 
 	});
 
@@ -14,10 +39,19 @@ if(jQuery('.rwmb-file_input-clone').length){
 
 
 		///jQuery(this).parent().find('.rwmb-file_input-clone:last-child').css("background-color", "red");
-		jQuery(this).parent().find('div.rwmb-clone:last').css("background-color", "red");
+		//jQuery(this).parent().find('div.rwmb-clone').css("background-color", "red");
+		
+		setTimeout(remodeImg, 50);
 	});
-	
 
+ 
+}
+function remodeImg(){
+  //jQuery('.rwmb-clone:last').css("background-color", "red");
+  jQuery('.rwmb-clone:last').find('img').parent().remove();
+}
+
+}
 }
 
 

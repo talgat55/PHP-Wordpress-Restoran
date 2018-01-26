@@ -4,7 +4,7 @@ Theme URI: https://wordpress.org/themes/twentyseventeen/
 Author: the WordPress team
 Author URI: https://wordpress.org/
 Description: Twenty Seventeen brings your site to life with header video and immersive featured images. With a focus on business sites, it features multiple sections on the front page as well as widgets, navigation and social menus, a logo, and more. Personalize its asymmetrical grid with a custom color scheme and showcase your multimedia content with post formats. Our default theme for 2017 works great in many languages, for any abilities, and on any device.
-Version: 1.4
+Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: twentyseventeen
@@ -96,6 +96,11 @@ Styles based on Normalize v5.0.0 @link https://github.com/necolas/normalize.css
 			url("./assets/css/LatoBold.ttf") format("truetype");
 		font-style: normal;
 		font-weight: normal;
+}
+header{
+      -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 .nav-link.right,
 .nav-link.left,
@@ -369,7 +374,7 @@ header{
 /*
 * Menu
 */
- 
+
 #menu-main li a{
 	display: inline-block;
 
@@ -789,14 +794,30 @@ text-align: left;
     margin: 0 0px 5px 5px!important;
 }
 .btn.btn-link-menu{
-	display: table;
+	/*display: table;*/
 	position: relative;
-    padding: 17px 31px;
-    margin: 29px auto 0 auto;
-    border: 1px solid #000;
-      -webkit-transition: all 0.3s ease;
+  padding: 17px 31px;
+   /* margin: 29px auto 0 auto;*/
+  border: 1px solid #000;
+  -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
-   	transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.btn.btn-link-menu.padding-right{
+
+  margin-right: 50px;
+
+}
+.padd-button-menu{
+
+  padding: 17px 41px!important;
+
+}
+ 
+.block-buttons{
+  display: table;
+  padding: 17px 31px;
+  margin: 29px auto 0 auto;
 }
 .btn.btn-link-menu:hover{
 	background-color: #000;
@@ -1588,12 +1609,104 @@ span.wpcf7-list-item{
     transform: translateY(0);
   }
 }
+/*
+* Vacancy
+*/
+.page-vacancy .section-title{
+  padding-bottom: 25px!important;
+}
 
+.describe-vacancy-main{
+  text-align: center;
+  width: 93%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+.vacancy-md .describe-text-vacancy{
+  margin: 0;
+  padding-bottom: 31px;
+}
+.border-bottom-vacancy{
+    width: 162px;
+    height: 1.2px;
+    background-color: #000;
+    display: table;
+    margin: 0 auto 23px auto;
+
+}
+
+.vacancy-md{
+  text-align: center;
+  padding-bottom: 100px;
+}
+.text-medium{
+  font-family: Raleway SemiBold;
+}
+.vacancy-md h3{
+    font-family: Raleway Bold;
+    border: 1px solid;
+    display: inline-block;
+    font-size: 25px;
+    padding: 15px 44px;
+    margin: 22px 0 27px 0;
+}
 .col-md-8{
 	width: 65%;
     float: left;
     padding-left: 15px;
 }
+
+/*
+* Menu Cat
+*/
+.menu-cat-walp h4{
+  text-transform: uppercase;
+  font-size: 18px; 
+  padding-left: 25px;
+  margin-left: 45px;
+  margin-top: 27px;
+}
+.page-menu .col-md-3{
+  width: 23%;
+  float: left;
+  padding-right: 2%;
+
+
+}
+.page-menu .col-md-3:nth-of-type(4n+4){
+  padding-right: 0;
+
+}
+.page-menu{
+  padding-bottom: 90px;
+}
+.menu-cat-walp img { 
+
+    padding-left: 17px;
+    vertical-align: middle;
+
+}
+.menu-cat-img-overlay  {
+    border: 1.4px solid #000;
+    padding: 10px;
+    margin-left: 45px;
+
+}
+.menu-cat-walp{
+  text-align: center;
+}
+.menu-cat-walp p{
+  font-family: Raleway Bold;
+  font-size: 16px;
+  padding-left: 25px;
+  margin-left: 45px;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+
+
 @media  (min-width: 1171px)  {
   .sub-menu{
     top: 67px; 
@@ -1663,10 +1776,51 @@ span.wpcf7-list-item{
 		width: 33.333%;
 		float: left;
 	}
+  .page-vacancy .col-md-6{
+    width: 48%;
+    float: left;
+    padding-right: 4%;
+  }
+  .page-vacancy .col-md-6:nth-of-type(2n+2){
+
+    padding-right: 0!important;
+
+  }
+
 }
 
 @media (max-width: 1170px) and (min-width: 900px)  {
-	.about-row .col-md-8 {
+  
+  .page-menu .col-md-3 {
+      width: 45%!important;
+      float: left;
+      padding-right: 2%;
+  }
+  .menu-cat-img-overlay { 
+    width: 190px;
+  }
+  .page-menu .col-md-3:nth-of-type(2n+2) {
+      padding-right: 0;
+  }
+  .page-vacancy .col-md-6{
+    width: 48%;
+    float: left;
+    padding-right: 4%;
+  }
+  .menu-cat-img-overlay,
+  .menu-cat-img-overlay a{
+    display: inline-block;
+  }
+  .page-vacancy .col-md-6:nth-of-type(2n+2){
+
+    padding-right: 0!important;
+    
+  }
+  .col-md-6{
+    width: 50%;
+    float: left;  
+  }
+  .about-row .col-md-8 {
     	width: 100%;
     	padding-left: 0;
 	}
@@ -1828,6 +1982,25 @@ span.wpcf7-list-item{
 }
 
 @media (max-width: 899px){
+  .page-menu .col-md-3 {
+      width: 100%!important;
+      float: left;
+      padding-right: 0!important;
+  }
+
+  .menu-cat-img-overlay { 
+    width: 190px;
+    margin-left: 0!important;
+    margin-right: 19px;
+  }
+  .btn.btn-link-menu{
+      display: table!important; 
+      margin: 29px auto 0 auto!important;
+  }
+  .menu-cat-walp {    
+    display: table;
+    margin: 0 auto;
+  }
 
 .menu-carousel-arrow-left{  
     left: -29px; 
@@ -1836,7 +2009,9 @@ span.wpcf7-list-item{
 .menu-carousel-arrow-right{
     right: -29px;
 }
-
+.btn.btn-link-menu.padding-right {
+    margin-right: 0!important;
+}
 
 	.about-row img{
 		width: 100%;
@@ -1854,6 +2029,7 @@ span.wpcf7-list-item{
       right: 0!important;
 
 	}
+
 	.form-banket-row .wpcf7-list-item-label {
 	    float: left;
 	    width: 40%;
@@ -2296,6 +2472,12 @@ span.wpcf7-list-item{
  	-moz-transition: all 0.3s ease;
    	transition: all 0.3s ease; 
 }
+  .top-modal .relative-class:hover img {
+    left: 170px!important;
+}
+  .top-modal{
+    overflow: hidden;
+  }
 .modal-form .close:hover{
 	color: red;
 }

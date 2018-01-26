@@ -11,7 +11,27 @@ include_once('inc/aq_resizer.php');
 include_once('inc/meta-box.php');
 include_once('inc/meta-box/meta-box.php');
  
+/*
+* Admin 
+*/ 
 
+if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/redux/ReduxCore/framework.php' ) ) {
+    require_once( dirname( __FILE__ ) . '/redux/ReduxCore/framework.php' );
+}
+if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/redux/options-config.php' ) ) {
+    require_once( dirname( __FILE__ ) . '/redux/options-config.php' );
+}
+/*
+* Redux hook
+*/
+function get_theme_options() {
+ 
+	$current_options = get_option('redux');
+	//use new options
+	if(!empty($current_options)) {
+		return $current_options;
+	}  
+}  
 /*
 * Add Feature Imagee
 **/
@@ -63,7 +83,7 @@ add_action( 'wp_enqueue_scripts', 'th_scripts' );
 
 function my_enqueue() {
  
-    wp_enqueue_script( 'appear', get_theme_file_uri(  '/assets/js/admin.js'),array(), '' ); 
+    wp_enqueue_script( 'admin', get_theme_file_uri(  '/assets/js/admin.js'),array(), '' ); 
 }
 
 add_action('admin_enqueue_scripts', 'my_enqueue');
@@ -107,6 +127,33 @@ function post_type_banket() {
 	);
 	register_post_type('banket',$args);
 } 
+
+/*
+*  Rgister Post Type Vacancy
+*/
+	  
+add_action( 'init', 'post_type_vacancy' );  
+ 
+function post_type_vacancy() {
+	$labels = array(
+		'name' => 'Вакансии', // ссылка в меню в админке
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true, // благодаря этому некоторые параметры можно пропустить
+		'menu_position' => 5,
+		'has_archive' => true,
+		'query_var' => "vacancy",
+		'supports'  => array(
+						'title',
+						'editor',
+						'thumbnail'
+		),
+		'taxonomies' => array('category')
+	);
+	register_post_type('vacancy',$args);
+} 
+
 
 
 
@@ -226,12 +273,38 @@ function post_type_main_action() {
 	);
 	register_post_type('action',$args);
 } 
+/*
+*  Rgister Post Type Action
+*/
+	  
+add_action( 'init', 'post_type_main_menucat' );  
+ 
+function post_type_main_menucat() {
+	$labels = array(
+		'name' => 'Категории Меню' 
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true, // благодаря этому некоторые параметры можно пропустить 
+		'menu_position' => 5,
+		'has_archive' => true,
+		'query_var' => "menucat",
+		'supports'  => array(
+						'title',
+						'editor',
+						'thumbnail'
+		),
+		'taxonomies' => array('category')
+	);
+	register_post_type('menucat',$args);
+} 
 
 
 add_filter( 'rwmb_meta_boxes', 'your_prefix_file_demo' );
 function your_prefix_file_demo( $meta_boxes )
 {
 	$meta_boxes[] = array(
+		'id'         => 'gallery-admin',
 		'title'  => __( 'Дополнительные поля', 'your-prefix' ),
 		'post_types' =>'gallery',
 		'fields' => array(
@@ -273,9 +346,7 @@ function your_prefix_file_demo( $meta_boxes )
 				// Delete file from Media Library when remove it from post meta?
 				// Note: it might affect other posts if you use same file for multiple posts
 				'force_delete'     => false,
-				'clone'  			=>  true,
-				// Maximum file uploads
-				'max_file_uploads' => 2,
+				'clone'  			=>  true,  
 			),
 
 		),
@@ -299,11 +370,37 @@ function your_prefix_file_demo2( $meta_boxes )
 				// Note: it might affect other posts if you use same file for multiple posts
 				'force_delete'     => false,
 				'clone'  			=>  true,
-				// Maximum file uploads
-				'max_file_uploads' => 2,
+				// Maximum file uploads 
 			),
 
 		),
 	);
 	return $meta_boxes;
 }
+ add_filter( 'rwmb_meta_boxes', 'your_prefix_file_demo3' );
+function your_prefix_file_demo3( $meta_boxes )
+{
+	$meta_boxes[] = array(
+		'id'         => 'standard',
+		'title'  => __( 'Дополнительные поля', 'your-prefix' ),
+		'post_types' =>'menucat',
+		'fields' => array(
+		 			
+		 
+			 array(
+				'id'               => 'file_aw',
+				'name'             => __( 'Файлы', 'your-prefix' ),
+				'type'             => 'file_input',
+				// Delete file from Media Library when remove it from post meta?
+				// Note: it might affect other posts if you use same file for multiple posts
+				'force_delete'     => false,
+				'clone'  			=>  true,
+				// Maximum file uploads
+				'max_file_uploads' => 3,
+			),
+
+		),
+	);
+	return $meta_boxes;
+}
+ 

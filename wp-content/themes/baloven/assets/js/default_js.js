@@ -13,7 +13,11 @@ initSlider();
 initForm();
 
 initModalBlock();
- 
+jQuery(".fancybox").fancybox({ 
+    iframe : {
+        preload: true
+    }
+});
 
 jQuery('.telephone').inputmask({"mask": "+7 (999) 999-9999"});
 

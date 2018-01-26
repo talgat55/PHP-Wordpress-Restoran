@@ -44,7 +44,6 @@
 
 	</div> 
 	</section> 
-	 
 
 	<section class="about-home" >
 		<div class="container">
@@ -111,8 +110,28 @@
 					<a href="#" class="menu-carousel-arrow-left"><img src="<?php  echo get_theme_file_uri( '/assets/images/a-l.jpg' ) ?>"></a>
 					<a href="#" class="menu-carousel-arrow-right"><img src="<?php  echo get_theme_file_uri( '/assets/images/a-r.jpg' ) ?>"></a>
 				</div>
-						<a href="#" class="btn btn-link-menu"><img src="<?php  echo get_theme_file_uri( '/assets/images/left-arrow.png' ) ?>">Все меню</a>
+				<div class="block-buttons">
+						<?php 
+							$options = get_theme_options();
+							$redyarr = explode(",", $options['pdf-files']);
+							
+							 foreach ($redyarr as $key => $value) {
+							 	$redy = wp_get_attachment_url($value,'full');
+							 	if($key ==0){
+								 	
+								 	echo '<a   data-fancybox="gallery" data-fancybox-type="iframe"  href="'.$redy.'" class="fancybox btn btn-link-menu padding-right">Бизнес-ланч</a>';
+								}else{
+								 	echo '<a  class="fancybox" data-fancybox="gallery" data-fancybox-type="iframe"  href="'.$redy.'"></a>';
+								}	
+							 }
 
+ 
+							 
+
+	 					?> 
+						
+						<a href="http://baloven.asmart-group.myjino.ru/93-2/" class="btn btn-link-menu padd-button-menu">Все меню</a>
+				</div>
   
 			</div>
 		</div>
@@ -216,7 +235,7 @@
 					?> 
 				 	<li class="item">
 					<span class="link-gallery-more">
-						  <a href="#"><img src="<?php  echo get_theme_file_uri( '/assets/images/left-arrow.png' ) ?>">Смотреть больше</a>
+						  <a href="http://baloven.asmart-group.myjino.ru/52-2/"><img src="<?php  echo get_theme_file_uri( '/assets/images/left-arrow.png' ) ?>">Смотреть больше</a>
 					</li>
 				 
 				</ul>
