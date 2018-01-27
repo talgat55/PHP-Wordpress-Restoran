@@ -10,7 +10,7 @@
 
 				<div class=" clearfix">
 				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>					
-					<p class="single-post-text"><?php  echo my_string_limit_words(get_the_content(get_the_ID()), 20); ?></p>
+					<div class="single-post-text"><?php  echo my_string_limit_words(get_the_content(get_the_ID()), 20); ?></div>
 					<div class="content-single col-md-12" style="text-align: center;">
 
 						<?php
@@ -34,9 +34,9 @@
 							<p class="meta-date-single"><?php echo get_the_date('d.m.y'); ?></p>
 							<span class="border-bottom-news"></span>
 						</div>
-						<p class="single-content">
+						<div class="single-content">
 							<?php  echo do_shortcode(get_the_content(get_the_ID())); ?>
-						</p> 
+						</div> 
  
 					</div>
   				<?php endwhile; endif; ?>

@@ -2839,7 +2839,7 @@ span.wpcf7-list-item{
     transform: translate3d(-30px, 0, 0) rotate(0.0001deg);
     -moz-transform: translate3d(-30px, 0, 0) rotate(0.0001deg);
     -webkit-transform: translate3d(-30px, 0, 0) rotate(0.0001deg);
-    background: url(./assets/images/left-arrow.png) no-repeat center;
+    background: url(./assets/images/arrow-right.png) no-repeat center;
     transition: all 0.7s cubic-bezier(0.23, 1, 0.38, 1) 0s;
     -webkit-transition: all 0.7s cubic-bezier(0.23, 1, 0.38, 1) 0s;
      -moz-transition: all 0.7s cubic-bezier(0.23, 1, 0.38, 1) 0s;

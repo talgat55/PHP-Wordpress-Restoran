@@ -45,7 +45,7 @@
 											 
 
 								echo '
-											<p><a class="href-menu-view" href="'.get_permalink($post_id).'">Посмотреть</a></p>
+											<p><a class="href-menu-view"  target="_blank"  href="'.$files[0].'">Посмотреть</a></p>
 											
 										</div>
 									</div>';

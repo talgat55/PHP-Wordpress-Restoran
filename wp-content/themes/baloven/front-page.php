@@ -316,7 +316,7 @@
 						 	 		<p>
 						 	 			@balovenomsk
 						 	 		</p>
-						 	 		<a href="#" class="btn btn-link-insta"><img src="<?php  echo get_theme_file_uri( '/assets/images/left-arrow.png' ) ?>"> Подписаться</a>
+						 	 		<a  target="_blank" href="https://www.instagram.com/balovenomsk/" class="btn btn-link-insta"><img src="<?php  echo get_theme_file_uri( '/assets/images/left-arrow.png' ) ?>"> Подписаться</a>
 						 	 	</div>
 						 	 	<div id="instafeed" class="clearfix"></div>
 

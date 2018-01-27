@@ -90,8 +90,7 @@ if(jQuery('#instafeed').length){
 	    links: false
 	  });
 	  userFeed.run();
-}
-
+} 
   /*
   * Yandex Map
   */
