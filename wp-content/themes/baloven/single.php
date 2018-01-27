@@ -1,43 +1,56 @@
-<?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
- * @version 1.0
- */
 
-get_header(); ?>
+<?php get_header(); ?>
+ 	<section >
+ 
+		<div class="container">
 
-<div class="wrap">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+			<div class="row padding-row">
+				<a href="#" style="float: left; margin-top: 22px;" onclick="window.history.go(-1); return false;"><img style="margin-right: 15px;" src="<?php  echo get_theme_file_uri( '/assets/images/back-link.png' ) ?>">Вернуться к новостям</a>
+				<h1 class="section-title" style="padding-bottom: 33px;"><?php  echo get_the_title(get_the_ID()); ?></h1>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+				<div class=" clearfix">
+				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>					
+					<p class="single-post-text"><?php  echo my_string_limit_words(get_the_content(get_the_ID()), 20); ?></p>
+					<div class="content-single col-md-12" style="text-align: center;">
 
-				get_template_part( 'template-parts/post/content', get_post_format() );
+						<?php
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+						$thumb   = get_post_thumbnail_id(get_the_ID());
+						$img_url = wp_get_attachment_url( $thumb,'full');
+						$image   = aq_resize( $img_url, 750, 450, true );
 
-				the_post_navigation( array(
-					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'twentyseventeen' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'twentyseventeen' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
-				) );
+						if($image){
 
-			endwhile; // End of the loop.
-			?>
+							echo '<img   src="'.$image.'"/> ';
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-	<?php get_sidebar(); ?>
-</div><!-- .wrap -->
+						}	else{
+
+							echo '<img width="100%"  src="'.$img_url.'"/> ';
+						}
+						?>
+						
+  
+						<div>
+							<p class="meta-date-single"><?php echo get_the_date('d.m.y'); ?></p>
+							<span class="border-bottom-news"></span>
+						</div>
+						<p class="single-content">
+							<?php  echo do_shortcode(get_the_content(get_the_ID())); ?>
+						</p> 
+ 
+					</div>
+  				<?php endwhile; endif; ?>
+				</div>
+				 
+
+
+
+
+			</div>	
+
+		</div>	
+
+ 	</section>
+ 
 
 <?php get_footer();

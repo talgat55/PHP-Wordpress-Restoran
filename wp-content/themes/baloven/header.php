@@ -68,7 +68,7 @@
 	<div class="modal-form form-banket-row top-modal">
 		<span class="close">&#10005;</span>
 		<h1 class="section-title" style="font-weight: 700; text-align: left;">Забронировать столик</h1>
-		<?php  echo do_shortcode('[contact-form-7 id="58" title="Контактная форма 1"]'); ?>
+		<?php  echo do_shortcode('[contact-form-7 id="36" title="Контактная форма 1"]'); ?>
 	</div>
  
 

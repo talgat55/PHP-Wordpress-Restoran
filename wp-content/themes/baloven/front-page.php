@@ -1,3 +1,9 @@
+<?php
+/* 
+*
+*Template Name: Домашняя страница
+*
+*/?>
 <?php get_header(); ?>
  
 
@@ -7,6 +13,7 @@
 
 
 			$argsslideer = array(
+				'posts_per_page'   => -1,
 				'post_type' => 'slider'
 			);
 
@@ -71,14 +78,16 @@
 		<div class="container">
 			 <div class="row padding-row">
 				<h1 class="section-title">Меню</h1>
-		 		<div style="position: relative;">
+		 		<div class="menu-part-walp" style="position: relative;">
 				<div class="owl-carousel owl-theme menu-carousel">
 
 					<?php
 							$thumb = $image = $img_url = '';
 
 								$args = array(
+								'posts_per_page'   => -1,
 								'post_type'        => 'menu'
+
 								);
 							$the_query_menu = new WP_Query($args);
 							while( $the_query_menu->have_posts() ) :
@@ -91,7 +100,7 @@
 							echo '<div class="item">';
 								 if ( $image ) : 
 
-								    echo '<img class="img-border" src="'.esc_url( $image ).'"   />';
+								    echo '<a href="'.$img_url.'"   data-fancybox="images" ><img class="img-border" src="'.esc_url( $image ).'"   /></a>';
 								   /* <img src="<?php  echo get_theme_file_uri( '/assets/images/menu.jpg' ) ?>">*/
 
 								 endif;  
@@ -111,25 +120,13 @@
 					<a href="#" class="menu-carousel-arrow-right"><img src="<?php  echo get_theme_file_uri( '/assets/images/a-r.jpg' ) ?>"></a>
 				</div>
 				<div class="block-buttons">
-						<?php 
-							$options = get_theme_options();
-							$redyarr = explode(",", $options['pdf-files']);
-							
-							 foreach ($redyarr as $key => $value) {
-							 	$redy = wp_get_attachment_url($value,'full');
-							 	if($key ==0){
-								 	
-								 	echo '<a   data-fancybox="gallery" data-fancybox-type="iframe"  href="'.$redy.'" class="fancybox btn btn-link-menu padding-right">Бизнес-ланч</a>';
-								}else{
-								 	echo '<a  class="fancybox" data-fancybox="gallery" data-fancybox-type="iframe"  href="'.$redy.'"></a>';
-								}	
-							 }
-
- 
-							 
-
-	 					?> 
-						
+					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>		
+						<?php  
+							$file_busines 	 = rwmb_meta( 'file_busines');
+						  
+							echo '<a target="_blank" href="'.$file_busines.'" class="btn btn-link-menu padding-right">Бизнес-ланч</a>';
+							?> 
+					<?php endwhile; endif; ?>		
 						<a href="http://baloven.asmart-group.myjino.ru/93-2/" class="btn btn-link-menu padd-button-menu">Все меню</a>
 				</div>
   
@@ -151,6 +148,7 @@
 								$args2 = array(  
 									'meta_key'  		=> 'check_shhow',
 									'meta_value' 		=> '1',
+									'posts_per_page'   	=> 6,
 									'post_type'        	=> 'gallery'
 								);
 							$the_query_gallery = new WP_Query($args2);
@@ -265,6 +263,7 @@
 						$i = 0;
 								$args3 = array(
 								'orderby' => array('date' => 'DESC'),
+								'posts_per_page'   => -1,
 								'post_type'        => 'action'
 								);
 							$the_query_action = new WP_Query($args3);

@@ -20,6 +20,7 @@
 						 	$thumb = $image = $img_url = '';
 							$i = 0;
 								$args2 = array(  
+									'posts_per_page'   => -1,
 									'post_type'        	=> 'gallery'
 								);
 							$the_query_gallery = new WP_Query($args2);

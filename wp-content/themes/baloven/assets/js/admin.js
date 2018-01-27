@@ -2,6 +2,8 @@
 jQuery(document).ready(function(){
 	"use strict"; 
  
+
+ console.log(jQuery( "#page_template" ).val());
 /*
 
 	jQuery(".rwmb-file-input-select.button").click(function() {
@@ -56,4 +58,7 @@ function remodeImg(){
 
 
 
+
+
+// end redy function
  });

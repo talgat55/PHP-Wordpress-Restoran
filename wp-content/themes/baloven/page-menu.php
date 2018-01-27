@@ -12,40 +12,41 @@
 			<div class="row padding-row page-menu">
 				<h1 class="section-title">Меню</h1>
 
-				<div class="clearfix">
+				<div class="row-carousel menu-part-walp" style="position: relative;">
+				<div class="  owl-carousel owl-theme  menucat-list">
 
 					<?php 
 
-								$args = array(
+								$args2 = array(
+								'posts_per_page'   => -1,
 								'post_type'        => 'menucat'
 								);
-							$the_query = new WP_Query($args);
+							$the_query = new WP_Query($args2);
+						 
 							while( $the_query->have_posts() ) :
 								$the_query->the_post();
 								$post_id = $the_query->post->ID; 
 								 
-							$img_url = wp_get_attachment_url(get_post_thumbnail_id($post_id,'full'));
+								$img_url = wp_get_attachment_url(get_post_thumbnail_id($post_id,'full'));
 								$image   = aq_resize( $img_url, 210, 174, true );
 								$files 	 = rwmb_meta( 'file_aw', $post_id );
-								$unqiq = uniqid();
-								echo '<div class="col-md-3">
+
+						  
+								echo '<div>
 										<div class="menu-cat-walp">
+										<h4>'.get_the_title($post_id).'</h4>
 											<div class="menu-cat-img-overlay">
-												<a class="fancybox" data-fancybox="gallery'.$unqiq.'" data-fancybox-type="iframe" href="'.$files[0].'">
+
+												<a  target="_blank" href="'.$files[0].'">
 													<img  class="animation-block img-block-icon opacity-zero" data-animation="zoomIn" src="'.$image.'">
 												</a>	
 											</div>
 											';
-											foreach ($files as $key => $value) {
-												if($key!= 0){
-													echo '<a class="fancybox" data-fancybox="gallery'.$unqiq.'" data-fancybox-type="iframe" href="'.$value.'"></a>';
-
-												}
-											}
+											 
 
 								echo '
-											<p><a href="'.get_permalink($post_id).'">Посмотреть</a></p>
-											<h4>'.get_the_title($post_id).'</h4>
+											<p><a class="href-menu-view" href="'.get_permalink($post_id).'">Посмотреть</a></p>
+											
 										</div>
 									</div>';
 
@@ -54,6 +55,9 @@
 					
 
 
+				</div>
+				 <a href="#" class="menu-carousel-arrow-left"><img src="<?php  echo get_theme_file_uri( '/assets/images/a-l.jpg' ) ?>"></a>
+					<a href="#" class="menu-carousel-arrow-right"><img src="<?php  echo get_theme_file_uri( '/assets/images/a-r.jpg' ) ?>"></a>
 				</div>
 				<?php
 				while ( have_posts() ) : the_post();
@@ -65,13 +69,14 @@
 				endwhile;
 
 				?>
-				 		 		<div style="position: relative;">
+				 <div class="row-carousel menu-part-walp"  style="position: relative;">
 				<div class="owl-carousel owl-theme menu-carousel">
 
 					<?php
 							$thumb = $image = $img_url = '';
 
 								$args = array(
+								'posts_per_page'   => -1,
 								'post_type'        => 'menu'
 								);
 							$the_query_menu = new WP_Query($args);
@@ -85,7 +90,7 @@
 							echo '<div class="item">';
 								 if ( $image ) : 
 
-								    echo '<img class="img-border" src="'.esc_url( $image ).'"   />';
+								    echo ' <a href="'.$img_url.'"   data-fancybox="images" ><img class="img-border" src="'.esc_url( $image ).'"   /></a>';
 								   /* <img src="<?php  echo get_theme_file_uri( '/assets/images/menu.jpg' ) ?>">*/
 
 								 endif;  

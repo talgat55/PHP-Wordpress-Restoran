@@ -44,6 +44,7 @@
 							$thumb = $image = $img_url = '';
 
 								$args = array(
+								'posts_per_page'   => -1,
 								'post_type'        => 'banket'
 								);
 							$the_query = new WP_Query($args);
@@ -106,7 +107,7 @@
 				<div class="form-banket-row page-bunket">
 					
 					<h1 class="section-title">Заявка на проведение банкета</h1>
-					<?php  echo do_shortcode('[contact-form-7 id="58" title="Контактная форма 1"]'); ?>
+					<?php  echo do_shortcode('[contact-form-7 id="36" title="Контактная форма 1"]'); ?>
 				</div>
 
 

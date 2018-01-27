@@ -13,11 +13,7 @@ initSlider();
 initForm();
 
 initModalBlock();
-jQuery(".fancybox").fancybox({ 
-    iframe : {
-        preload: true
-    }
-});
+ 
 
 jQuery('.telephone').inputmask({"mask": "+7 (999) 999-9999"});
 
@@ -148,8 +144,7 @@ if(jQuery('#map').length){
 
 
 }
-
-
+ 
 // end redy function
 });
 jQuery(window).resize(function() {
@@ -163,8 +158,60 @@ jQuery(window).resize(function() {
 
 jQuery(window).load(function() {
 initCarouselMenu();
-initwidhttextarea();
+initwidhttextarea(); 
+initCarouselMenuCat();
 });
+ 
+//---------
+// Carousel Menu Cat
+//--------
+
+function initCarouselMenuCat(){
+	var carouselmenu = jQuery('.menucat-list');
+carouselmenu.owlCarousel({
+    loop:true, 
+    nav:false,
+    dots:false, 
+     margin:84,
+    responsive:{
+        0:{
+            items: 1
+        },
+        600:{
+            items: 2
+
+        },
+        900:{
+            items:3
+        },
+        1100:{
+            items:4
+        }
+    }
+});
+/*
+    jQuery(".menu-carousel-arrow-right").click(function() { 
+        carouselmenu.trigger('next.owl.carousel');
+        return false;
+    });
+	
+    jQuery(".menu-carousel-arrow-left").click(function() {
+        carouselmenu.trigger('prev.owl.carousel');
+        return false;
+    });
+*/
+
+    jQuery(".menu-carousel-arrow-right").click(function() { 
+       jQuery(this).closest('.row-carousel').find('.owl-carousel').trigger('next.owl.carousel');
+        return false;
+    });
+	
+    jQuery(".menu-carousel-arrow-left").click(function() {
+        jQuery(this).closest('.row-carousel').find('.owl-carousel').trigger('prev.owl.carousel');
+        return false;
+    });
+
+}
 //---------
 // Carousel Menu 
 //--------
@@ -192,7 +239,7 @@ carouselmenu.owlCarousel({
         }
     }
 });
-
+/*
     jQuery(".menu-carousel-arrow-right").click(function() { 
         carouselmenu.trigger('next.owl.carousel');
         return false;
@@ -202,8 +249,17 @@ carouselmenu.owlCarousel({
         carouselmenu.trigger('prev.owl.carousel');
         return false;
     });
+*/
 
-
+    jQuery(".menu-carousel-arrow-right").click(function() { 
+       jQuery(this).closest('.row-carousel').find('.owl-carousel').trigger('next.owl.carousel');
+        return false;
+    });
+	
+    jQuery(".menu-carousel-arrow-left").click(function() {
+        jQuery(this).closest('.row-carousel').find('.owl-carousel').trigger('prev.owl.carousel');
+        return false;
+    });
 
 }
 
@@ -349,7 +405,38 @@ function animationblocks(){
 	}else{
 		jQuery('.animation-block').addClass(' animated ');
 	}
+
+/*	if(windowwidth >= 1000){
+		jQuery('.item-list-wallpapers').each(function(){
+			jQuery(this).appear(function() {
+ 
+				var $this = jQuery(this); 
+				$this.addClass(' showblock ');
+						 
+		},{accX: 0, accY: -50})});
+
+
+	}else{
+
+		jQuery('.item-list-wallpapers').addClass(' showblock ');
+
+	}*/
+
+
+		// for menucat list  show hide block
+
+		if(jQuery('.menucat-list').length){
+			jQuery('.animation-block').each(function(){
+				var $this = jQuery(this);
+				setTimeout( showblockmenucat($this), 900); 
+			});
+		}
+
 }
+function showblockmenucat($this){
+  $this.addClass(' animated ')
+}
+
 
 /*
 * Calculate block  Map

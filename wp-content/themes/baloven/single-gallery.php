@@ -9,6 +9,7 @@
 		<div class="container">
 
 			<div class="row padding-row">
+				<a href="#" style="float: left; margin-top: 22px;" onclick="window.history.go(-1); return false;"><img style="margin-right: 15px;" src="<?php  echo get_theme_file_uri( '/assets/images/back-link.png' ) ?>">Вернуться назад</a>
 				<h1 class="section-title">Галерея</h1>
  
 					<ul class="banket single-gallery clearfix">
@@ -29,14 +30,15 @@
 								   		//$value = str_replace("watch","embed",$value);
 										$url = 'https://img.youtube.com/vi/'.$my_array_of_vars['v'].'/0.jpg';
 										 
-
-								   $content ='<img src="'.esc_url( $url ).'"   />';
+									$classname = 'single-gallery-link-youtube';
+								   	$content ='<img src="'.esc_url( $url ).'"   />';
 								 }else{
 								 	$image   = aq_resize( $value, 480, 360, true ); 
 								 	$content = '<img src="'.esc_url( $image ).'"   />';
+								 	$classname = '';
 								 }
 								
-								echo '<li> <a href="'.$value.'"   data-fancybox="images" >';
+								echo '<li> <a class="single-gallery-link '.$classname.'" href="'.$value.'"   data-fancybox="images" >';
 									 
 
 									    echo $content;

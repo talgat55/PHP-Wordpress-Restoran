@@ -14,16 +14,18 @@ include_once('inc/meta-box/meta-box.php');
 /*
 * Admin 
 */ 
-
+/*
 if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/redux/ReduxCore/framework.php' ) ) {
     require_once( dirname( __FILE__ ) . '/redux/ReduxCore/framework.php' );
 }
 if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/redux/options-config.php' ) ) {
     require_once( dirname( __FILE__ ) . '/redux/options-config.php' );
 }
+
 /*
 * Redux hook
 */
+/*
 function get_theme_options() {
  
 	$current_options = get_option('redux');
@@ -31,7 +33,7 @@ function get_theme_options() {
 	if(!empty($current_options)) {
 		return $current_options;
 	}  
-}  
+}  */
 /*
 * Add Feature Imagee
 **/
@@ -77,6 +79,14 @@ function th_scripts() {
 	wp_enqueue_script( 'jquery-ui-timepicker-addon', get_theme_file_uri(  '/assets/js/jquery-ui-timepicker-addon.js'),array(), '' ); 
 
   
+ global $wp_query;
+	$args = array(
+		'url'   => admin_url( 'admin-ajax.php' ),
+		'query' => $wp_query->query,
+	);
+  wp_enqueue_script( 'be-load-more', get_theme_file_uri(  '/assets/js/load-more.js'),array(), '' ); 
+  wp_localize_script( 'be-load-more', 'beloadmore', $args );
+ 
 	 
 }
 add_action( 'wp_enqueue_scripts', 'th_scripts' );
@@ -403,4 +413,121 @@ function your_prefix_file_demo3( $meta_boxes )
 	);
 	return $meta_boxes;
 }
+ add_filter( 'rwmb_meta_boxes', 'your_prefix_file_demo4' );
+function your_prefix_file_demo4( $meta_boxes )
+{
+	$meta_boxes[] = array(
+		'id'         => 'standard',
+		'title'  => __( 'Дополнительные поля', 'your-prefix' ),
+		'post_types' =>'page',
+		'fields' => array(
+		 			
+		 
+			 array(
+				'id'               => 'file_busines',
+				'name'             => __( 'Файл', 'your-prefix' ),
+				'desc'             => __( 'Файл кнопки "Бизнес-ланч"', 'your-prefix' ),
+				'type'             => 'file_input',
+				// Delete file from Media Library when remove it from post meta?
+				// Note: it might affect other posts if you use same file for multiple posts
+				'force_delete'     => false, 
+				// Maximum file uploads
+				'max_file_uploads' => 1,
+			),
+
+		),
+	);
+	return $meta_boxes;
+}
  
+
+/*
+* Custom excerpt
+*/
+function my_string_limit_words($string, $word_limit){
+		$words = explode(' ', $string, ($word_limit + 1));
+		if( count($words) > $word_limit )
+			array_pop($words);
+	//	return implode(' ', $words).'... ';
+		return implode(' ', $words).'';
+} 
+
+
+/**
+ * AJAX Load More 
+ * @link http://www.billerickson.net/infinite-scroll-in-wordpress
+ */
+
+function be_ajax_load_more() {
+	$args = isset( $_POST['query'] ) ? array_map( 'esc_attr', $_POST['query'] ) : array();
+	//$args['post_type'] = isset( $args['post_type'] ) ? esc_attr( $args['post_type'] ) : 'post';
+	$args['post_type'] =$_POST['query'];
+	$args['paged'] = esc_attr( $_POST['page'] );
+	$args['post_status'] = 'publish';
+	ob_start();
+	$loop = new WP_Query( $args );
+	if( $loop->have_posts() ): while( $loop->have_posts() ): $loop->the_post();
+		be_post_summary($_POST['query']);
+	endwhile; endif; 
+	wp_reset_postdata();
+	$data = ob_get_clean();
+	wp_send_json_success( $data );
+	wp_die();
+}
+add_action( 'wp_ajax_be_ajax_load_more', 'be_ajax_load_more' );
+add_action( 'wp_ajax_nopriv_be_ajax_load_more', 'be_ajax_load_more' );
+
+
+function be_post_summary($type) {
+
+							$img_url = wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()),'full');
+							$image   = aq_resize( $img_url, 853, 853, true );
+
+ 							echo '<li class="clearfix">';
+ 							$after = '';
+ 							if($type == 'action'){
+
+ 								echo '<div class="item-list-wallpapers">';
+ 								$after = true;
+ 								// <div class="item-text animation-block  opacity-zero " data-animation="slideInUp">
+ 							}else{
+
+ 								echo '<a href="'.get_permalink(get_the_ID()).'" class="item-list-wallpapers">';
+ 								$after = false;
+ 							}
+ 							
+
+ 							echo '
+ 									<div class="item-img">
+ 										
+ 										<div class="img" style="background-image: url('.$image.'); "></div>
+ 										<div class="arrow-news"></div>
+ 										<div class="overlay-bg-item"></div>
+ 									</div>
+ 									
+ 									 
+
+ 									
+ 									<div class="item-text ">
+ 										<h2>'.get_the_title(get_the_ID()).'</h2>
+
+ 										<p>
+ 											'.my_string_limit_words(get_the_content(get_the_ID()),9).'
+ 										</p>
+ 									</div>';
+ 							if($after){
+
+ 								echo '</div>';
+ 							}else{
+
+ 								echo '</a>';
+
+ 							}
+ 							
+ 							
+
+
+ 							echo '</li>';
+
+
+}
