@@ -52,20 +52,20 @@
 			<div class="contact-page-social clearfix">
 				<ul class="contact-page-social-list">
 					<li class="page-social-item">
-						<a href="">
+						<a  target="_blank" href="https://www.facebook.com/balovenomsk/">
 						<img src="<?php  echo get_theme_file_uri( '/assets/images/fb.png' ) ?>">
 						</a>
 					</li>
 
 					<li class="page-social-item">
-						<a href="">
+						<a target="_blank" href="https://vk.com/club38256360">
 						<img src="<?php  echo get_theme_file_uri( '/assets/images/vk.png' ) ?>">
 						</a>
 					</li>
 
 					<li class="page-social-item">
-						<a href="">
-						<img src="<?php  echo get_theme_file_uri( '/assets/images/inst.png' ) ?>">
+						<a target="_blank" href="https://www.instagram.com/balovenomsk/">
+						<img   src="<?php  echo get_theme_file_uri( '/assets/images/inst.png' ) ?>">
 						</a>
 					</li>
 

@@ -3188,3 +3188,7 @@ span.wpcf7-list-item{
 .block-text-contact-page p{
   font-size: 20px;
 }
+.page-social-item a{
+  display: block;
+  position: relative;
+}
