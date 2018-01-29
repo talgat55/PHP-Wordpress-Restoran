@@ -65,6 +65,16 @@
 
 	</header> 
 	<div class="all-overlay"></div>
+	<div class="modal-form-success-send">
+		<span class="close">&#10005;</span>
+		<img src="<?php  echo get_theme_file_uri( '/assets/images/logo.png' ) ?>">
+		<div style="position: relative;">
+			<h1 >Спасибо за заявку!</br> С вами свяжется менеджер</h1>
+		</div>
+		<p>Мы с радостью ждем Вас в нашем ресторане!</p>
+	</div>
+
+
 	<div class="modal-form form-banket-row top-modal">
 		<span class="close">&#10005;</span>
 		<h1 class="section-title" style="font-weight: 700; text-align: left;">Забронировать столик</h1>

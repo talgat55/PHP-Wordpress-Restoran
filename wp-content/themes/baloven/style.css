@@ -2116,6 +2116,19 @@ span.wpcf7-list-item{
 
     min-height: 200px;
   }
+  .block-text-contact-page h2{
+    margin-top: 20px!important;
+  }
+  .modal-form-success-send{
+
+    width: 100%!important;
+    
+  }
+  .letter-contact .col-md-6{
+    width: 100%!important;
+    float: none!important;
+    padding-right: 0!important;
+  }
 
   .item-img {
     width: 100%!important;
@@ -2918,4 +2931,260 @@ span.wpcf7-list-item{
     background-color: #fff;
 
 
+}
+
+/*
+* Modal Succes SendEmail
+*
+*/
+.modal-form-success-send .close {
+    cursor: pointer;
+    float: right;
+        padding-top: 4px;
+    padding-right: 7px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+ 
+.modal-form-success-send p{
+    margin-bottom:  50px;
+    margin-top:  0;
+    font-size: 20px;
+}
+.modal-form-success-send .close:hover {
+    color: red;
+}
+.modal-form-success-send{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+    background-color: #fff;
+    width: 800px; 
+    transform: translate(-50%, -50%);
+    text-align: center;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay-display-success{
+    visibility: visible;
+    opacity: 1;
+
+}
+.modal-form-success-send img {
+
+  width: 38%;
+  margin-top: 50px;
+}
+.modal-form-success-send h1::before {
+    content: " ";
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    border-width: 1px;
+    width: 60%;
+    left: 50%;
+    margin: 0 auto;
+    /* display: table; */
+    transform: translate(-50%);
+}
+.modal-form-success-send h1 {
+    font-size: 30px;
+    font-weight: 400;
+    margin: 50px 0;
+    padding: 26px 0;
+    text-align: center;
+    position: relative;
+}
+/*
+* Social
+*/
+.contact-page-social-list{
+  padding: 0;
+  margin: 0;
+}
+.contact-page-social-list li {
+    list-style: none;
+    float: left;
+    width: 38px;
+    display: inline-block;
+    text-align: center;
+    /* vertical-align: bottom; */
+    line-height: 61px;
+    padding: 0 19px;
+    position: relative;
+}
+.contact-page-social-list li img{
+  vertical-align: bottom;
+  opacity: .4;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.contact-page-social-list li:hover img{
+  opacity: 1;
+}
+.contact-page-social{
+    margin: 17px auto;
+    display: table;
+}
+.contact-page-social-list li::before {
+    content: " ";
+    border-right: 1px solid #b5b5b5; 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top:18px;
+
+}
+.contact-page-social-list li:last-child::before {
+  display: none;
+} 
+.letter-contact .col-md-6{
+    width: 48%;
+    float: left;
+    padding-right: 2%;
+}
+.letter-contact .col-md-6:last-child{
+  padding-right: 0;
+
+}
+.letter-contact .wpcf7{
+  overflow: hidden;
+}
+.letter-contact{
+  margin: 40px 0 20px 0;
+}
+.letter-contact textarea{
+      width: 100%;
+    border-top: none;
+    font-size: 18px;
+    height: 141px;
+    border-right: none;
+    padding: 9px;
+    border-left: none;
+    border-bottom: 1px solid #000;
+}
+.letter-contact input[type=checkbox] {
+  width: auto!important;
+}
+.letter-contact input{
+    overflow: visible;
+    border-top: none;
+    border-right: none;
+    width: 100%;
+    padding: 9px;
+    border-left: none;
+    border-bottom: 1px solid #000;
+}
+.letter-contact textarea::-webkit-input-placeholder , 
+.letter-contact ::-webkit-input-placeholder { 
+  color: #000; 
+}
+.letter-contact textarea::-moz-placeholder ,
+.letter-contact ::-moz-placeholder {  
+  color: #000; 
+}
+.letter-contact textarea:-ms-input-placeholder , 
+.letter-contact :-ms-input-placeholder { 
+  color: #000; 
+}
+.letter-contact textarea:-moz-placeholder , 
+.letter-contact :-moz-placeholder { 
+  color: #000;
+
+}
+.label--checkbox {
+  position: relative;
+ /* margin: .5rem;*/
+  font-family: Arial, sans-serif;
+  line-height: 135%;
+  cursor: pointer;
+}
+
+.letter-contact [type="checkbox"] {
+    position: relative;
+    top: 0;
+    float: left; 
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+}
+.letter-contact [type="checkbox"]:before {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #000;
+}
+.letter-contact [type="checkbox"]:checked:before {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  height: .5rem;
+  border-color: #000;
+  border-top-style: none;
+  border-right-style: none;
+}
+.letter-contact [type="checkbox"]:after {
+  content: "";
+  position: absolute;
+  top: -0.125rem;
+  left: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: #fff;
+  cursor: pointer;
+}
+.wpcf7-list-item.first.last{ 
+    float: left;
+
+}
+.letter-contact  .wpcf7-list-item-label{
+    float: left; 
+    width: 72%;
+
+}
+ 
+.label--checkbox p{
+  display: inline-block;
+    width: 50%;
+    margin: 0;
+}
+.wpcf7-submit{
+    border: 1.4px solid #000!important; 
+    padding: 14px 28px!important; 
+
+}
+.relative-class.contact {
+ 
+    float: none!important;
+    display: table;
+    margin: 0 auto;
+    padding-top: 10px; 
+}
+.relative-class.contact img{
+  top: 24px;
+}
+.block-text-contact-page h2{
+    font-weight: 400;
+    margin-top: 70px;
+    font-size: 30px;
+
+}
+.block-text-contact-page p{
+  font-size: 20px;
 }

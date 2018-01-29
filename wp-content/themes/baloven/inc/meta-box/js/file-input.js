@@ -3,6 +3,7 @@ jQuery( function ( $ ) {
 
 	var frame;
 
+ 
 	$( 'body' ).on( 'click', '.rwmb-file-input-select', function ( e ) {
 		e.preventDefault();
 		var $el = $( this );
@@ -26,7 +27,8 @@ jQuery( function ( $ ) {
 		frame.on( 'select', function () {
 			var url = frame.state().get( 'selection' ).first().toJSON().url;
 			
-
+			 
+			$el.parent().append('<div class="img"><img  width="90" src="'+url+'" /></div>');  // append  img 
 			$el.siblings( 'input' ).val( url ).siblings( 'a' ).removeClass( 'hidden' ); 
 		} );
 	} );

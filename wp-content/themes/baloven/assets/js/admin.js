@@ -2,8 +2,56 @@
 jQuery(document).ready(function(){
 	"use strict"; 
  
+  
+/*
+* Page Check Home 
+*/
+if(jQuery('#page_template option:selected').val() == "front-page.php"){
 
- console.log(jQuery( "#page_template" ).val());
+	jQuery('#standard').fadeIn();
+}
+
+jQuery('#page_template').on('change', function() { 
+  
+  if(this.value == "front-page.php"){
+
+  	jQuery('#standard').fadeIn();
+
+  }
+
+});
+
+
+jQuery('.media-frame .media-button-select').click(function() {
+	console.log('true check button');
+});
+
+
+/*
+* Gallery Page Post type
+*/
+/*
+
+jQuery('').on('change', function() { 
+  
+  alert(this.value);
+
+});*/
+window.checkyoutube =  function(value,selector){
+			
+			
+			var matches = value.match(/watch\?v=([a-zA-Z0-9\-_]+)/);
+			if (matches)
+			{
+					var videoid = value.match(/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/);
+
+					value = 'https://img.youtube.com/vi/'+videoid[4]+'/0.jpg';
+			}
+			jQuery(selector).parent().append('<div class="img"><img  width="90" src="'+value+'" /></div>');
+
+}
+
+
 /*
 
 	jQuery(".rwmb-file-input-select.button").click(function() {

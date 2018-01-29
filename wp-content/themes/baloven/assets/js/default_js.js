@@ -1,3 +1,58 @@
+ //document.addEventListener('wpcf7mailsent', function( event ) {
+ document.addEventListener('wpcf7submit', function( event ) {
+ 	 
+if(event.detail.contactFormId=="36" || event.detail.contactFormId=="151"){ 
+
+	successsendmail();
+}
+}, false );
+
+/*
+* Auto hide modal Success send mail
+*/
+function hidemodalsuccess(){
+		jQuery('.all-overlay').removeClass('overlay-display');
+
+		jQuery('.modal-form-success-send').removeClass('overlay-display-success');
+}
+function showmodalsuccess(){
+	var $this = jQuery('.modal-form-success-send'); 
+
+	$this.addClass(' overlay-display-success ');
+	jQuery('.all-overlay').addClass('overlay-display');
+}
+
+/*
+* Action For send email
+*/
+
+function successsendmail(){
+	var $this = jQuery('.modal-form-success-send');
+	jQuery('.modal-form').fadeOut(200).css({top: '-165%' }).fadeIn(),
+
+//	$this.delay(300).addClass(' overlay-display-success ');
+
+	 setTimeout(showmodalsuccess, 300);
+	
+	jQuery(".modal-form-success-send .close").click(function() {
+
+		jQuery('.all-overlay').removeClass('overlay-display');
+
+		$this.removeClass('overlay-display-success');
+
+		return false;
+
+	});
+
+	
+		 setTimeout(hidemodalsuccess, 3000);	
+	
+		
+ 	 
+}
+
+
+
 // ---------------------------------------------------------
 // !!!!!!!!!!!!!!!!!document ready!!!!!!!!!!!!!!!!!!!!!!!!!!
 // ---------------------------------------------------------
@@ -18,6 +73,10 @@ initModalBlock();
 jQuery('.telephone').inputmask({"mask": "+7 (999) 999-9999"});
 
  
+
+
+
+
 
 //---------
 // Carousel Action 
@@ -143,6 +202,21 @@ if(jQuery('#map').length){
 
 
 }
+
+
+/*
+*  Function Hide overlay layer and hide blocks modal form  and success notice
+*/
+
+jQuery( ".all-overlay" ).click(function(){  
+	jQuery('.all-overlay').removeClass('overlay-display');
+	jQuery('.modal-form').css({top: '-165%' }); 
+	jQuery('.modal-form-success-send').removeClass(' overlay-display-success ');
+
+
+			return false;
+});
+
  
 // end redy function
 });
@@ -304,12 +378,7 @@ function initModalBlock(){
     });
 	
 
-	jQuery( ".all-overlay" ).click(function(){  
-			jQuery('.all-overlay').removeClass('overlay-display');
 
-					jQuery('.modal-form').css({top: '-165%' }); 
-			return false;
-});
 
 }
 

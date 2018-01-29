@@ -62,10 +62,14 @@ function th_scripts() {
  
 	wp_enqueue_script( 'jquery', get_theme_file_uri( '/assets/js/jquery-3.2.1.min.js' ), array(), '' );
 	if( is_front_page() OR is_home()) { 
-	wp_enqueue_script( 'yandex-map', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU',array(), '' ); 
-	wp_enqueue_script( 'instafeed', 'https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js',array(), '' ); 
-	wp_enqueue_script( 'vk', 'https://vk.com/js/api/openapi.js?151',array(), '' ); 
+	
+		wp_enqueue_script( 'instafeed', 'https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/1.4.1/instafeed.min.js',array(), '' ); 
+		wp_enqueue_script( 'vk', 'https://vk.com/js/api/openapi.js?151',array(), '' ); 
 	}
+	if( is_front_page() OR is_home() OR is_page_template('page-contact.php')) { 
+		wp_enqueue_script( 'yandex-map', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU',array(), '' ); 
+	}
+	
 	wp_enqueue_script( 'default', get_theme_file_uri(  '/assets/js/default_js.js'),array(), '' ); 
 	wp_enqueue_script( 'owl', get_theme_file_uri(  '/assets/js/owl.carousel.js'),array(), '' );   
  
@@ -94,6 +98,7 @@ add_action( 'wp_enqueue_scripts', 'th_scripts' );
 function my_enqueue() {
  
     wp_enqueue_script( 'admin', get_theme_file_uri(  '/assets/js/admin.js'),array(), '' ); 
+    wp_enqueue_style( 'style', get_theme_file_uri(  '/assets/css/admin.css'),array(), '' );
 }
 
 add_action('admin_enqueue_scripts', 'my_enqueue');
@@ -123,8 +128,7 @@ function post_type_banket() {
 	);
 	$args = array(
 		'labels' => $labels,
-		'public' => true, // благодаря этому некоторые параметры можно пропустить
-		'menu_icon' => 'dashicons-cart', // иконка корзины
+		'public' => true, 
 		'menu_position' => 5,
 		'has_archive' => true,
 		'query_var' => "banket",
@@ -182,8 +186,7 @@ function post_type_slider() {
 	);
 	$args = array(
 		'labels' => $labels,
-		'public' => true, // благодаря этому некоторые параметры можно пропустить
-		'menu_icon' => 'dashicons-cart', // иконка корзины
+		'public' => true, 
 		'menu_position' => 5,
 		'has_archive' => true,
 		'query_var' => "slider",
@@ -216,8 +219,7 @@ function post_type_main_menu() {
 	);
 	$args = array(
 		'labels' => $labels,
-		'public' => true, // благодаря этому некоторые параметры можно пропустить
-		'menu_icon' => 'dashicons-cart', // иконка корзины
+		'public' => true, 
 		'menu_position' => 5,
 		'has_archive' => true,
 		'query_var' => "menu",
@@ -243,8 +245,7 @@ function post_type_main_gallery() {
 	);
 	$args = array(
 		'labels' => $labels,
-		'public' => true, // благодаря этому некоторые параметры можно пропустить
-		'menu_icon' => 'dashicons-cart', // иконка корзины
+		'public' => true, 
 		'menu_position' => 5,
 		'has_archive' => true,
 		'query_var' => "gallery",
@@ -269,8 +270,7 @@ function post_type_main_action() {
 	);
 	$args = array(
 		'labels' => $labels,
-		'public' => true, // благодаря этому некоторые параметры можно пропустить
-		'menu_icon' => 'dashicons-cart', // иконка корзины
+		'public' => true, 
 		'menu_position' => 5,
 		'has_archive' => true,
 		'query_var' => "action",
