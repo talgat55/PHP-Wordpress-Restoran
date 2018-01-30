@@ -869,14 +869,14 @@ text-align: left;
 * Gallery
 */
 .list-gallery{
-	margin: 0;
+	margin: -15px 0 0 0;
 	padding: 0;
 
 }
 .page-gallery,
 .single-gallery{
 
-	margin-bottom: 40px!important;
+	margin-bottom: 44px!important;
 }
 .list-gallery li{
 	list-style: none;
@@ -1347,6 +1347,10 @@ text-align: left;
       -ms-transform:  scale(1.1); /* IE 9 */
           transform:  scale(1.1); 
 }
+img.animation-block{
+    height: auto;
+    width: auto;
+}
 .static-sec p{
 	width: 130px;
     margin: 0 auto;
@@ -1362,6 +1366,9 @@ text-align: left;
     width: 80px; 
     display: table; 
     margin: 15px auto;
+}
+.banket.single-gallery{
+    margin: -15px -17px 49px -17px;
 }
 .half-form{
     width: 50%;
@@ -1661,7 +1668,7 @@ span.wpcf7-list-item{
 
 .vacancy-md{
   text-align: center;
-  padding-bottom: 100px;
+  padding-bottom: 36px;
 }
 .text-medium{
   font-family: Raleway SemiBold;
@@ -1702,13 +1709,16 @@ span.wpcf7-list-item{
 
 }
 .page-menu{
-  padding-bottom: 90px;
+  padding-bottom: 49px;
 }
 .menu-cat-walp img { 
 
     padding-left: 30px;
     vertical-align: middle;
 
+}
+.menu-cat-height{
+  min-height: 303px!important;
 }
 .menu-cat-img-overlay  {
     border: 1.4px solid #000;
@@ -2107,8 +2117,25 @@ span.wpcf7-list-item{
 	}
 
 }
-
+.form-banket-row.page-bunket {
+    margin-bottom: 49px;
+}
 @media (max-width: 899px){
+ /* .vacancy-md{
+    padding-bottom: 33px;
+  }*/
+  
+  .item-text h2{
+    text-align: center;
+  }
+
+  .banket{
+    margin-top: 0;
+  }
+  .btn.btn-link-more{
+    margin: 0 auto 49px auto!important;
+  }
+  .form-banket-row page-bunket
   .btn.btn-link-more .arrow-butt{
     display: none;
   }
@@ -3191,4 +3218,7 @@ span.wpcf7-list-item{
 .page-social-item a{
   display: block;
   position: relative;
+}
+.contact-bot-margin{
+  margin-bottom: 29px;
 }

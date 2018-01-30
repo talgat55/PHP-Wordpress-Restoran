@@ -391,7 +391,7 @@ function your_prefix_file_demo2( $meta_boxes )
 function your_prefix_file_demo3( $meta_boxes )
 {
 	$meta_boxes[] = array(
-		'id'         => 'standard',
+		'id'         => 'standard-sa',
 		'title'  => __( 'Дополнительные поля', 'your-prefix' ),
 		'post_types' =>'menucat',
 		'fields' => array(
@@ -404,7 +404,7 @@ function your_prefix_file_demo3( $meta_boxes )
 				// Delete file from Media Library when remove it from post meta?
 				// Note: it might affect other posts if you use same file for multiple posts
 				'force_delete'     => false,
-				'clone'  			=>  true,
+				'clone'  			=>  false,
 				// Maximum file uploads
 				'max_file_uploads' => 3,
 			),

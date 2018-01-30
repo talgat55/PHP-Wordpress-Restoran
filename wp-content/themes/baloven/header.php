@@ -6,7 +6,7 @@
 <meta http-equiv="pragma" content="no-cache" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<!-- Favicon -->
-<link rel="icon" href="<?php  echo get_theme_file_uri( '/assets/images/favicon.png' ) ?>" type="image/x-icon" />
+<link  rel="shortcut icon" href="<?php  echo get_theme_file_uri( '/assets/images/favicon.ico' ) ?>" type="image/x-icon" />
  <title><?php bloginfo('name'); ?></title> 
 <?php wp_head(); ?>
 </head>

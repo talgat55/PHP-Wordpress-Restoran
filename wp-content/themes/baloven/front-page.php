@@ -127,7 +127,7 @@
 							echo '<a target="_blank" href="'.$file_busines.'" class="btn btn-link-menu padding-right">Бизнес-ланч</a>';
 							?> 
 					<?php endwhile; endif; ?>		
-						<a href="http://baloven.asmart-group.myjino.ru/93-2/" class="btn btn-link-menu padd-button-menu">Все меню</a>
+						<a href="http://baloven.asmart-group.myjino.ru/меню/" class="btn btn-link-menu padd-button-menu">Все меню</a>
 				</div>
   
 			</div>
@@ -233,7 +233,7 @@
 					?> 
 				 	<li class="item">
 					<span class="link-gallery-more">
-						  <a href="http://baloven.asmart-group.myjino.ru/52-2/"><img src="<?php  echo get_theme_file_uri( '/assets/images/left-arrow.png' ) ?>">Смотреть больше</a>
+						  <a href="http://baloven.asmart-group.myjino.ru/галерея"><img src="<?php  echo get_theme_file_uri( '/assets/images/left-arrow.png' ) ?>">Смотреть больше</a>
 					</li>
 				 
 				</ul>

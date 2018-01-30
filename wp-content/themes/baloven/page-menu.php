@@ -12,7 +12,7 @@
 			<div class="row padding-row page-menu">
 				<h1 class="section-title">Меню</h1>
 
-				<div class="row-carousel menu-part-walp" style="position: relative;">
+				<div class="row-carousel menu-part-walp menu-cat-height" style="position: relative;">
 				<div class="  owl-carousel owl-theme  menucat-list">
 
 					<?php 

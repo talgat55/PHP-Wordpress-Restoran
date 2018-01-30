@@ -72,7 +72,7 @@
 
 				</ul>
 			</div>
-			<div class="letter-contact clearfix">
+			<div class="letter-contact contact-bot-margin clearfix">
 				<div class="col-md-6">
 					<div class="block-text-contact-page">
 						<h2>Написать письмо управляющему</h2>
