@@ -16,10 +16,13 @@
 					<ul class="list-news list-load-more"  data-type="action">
 					 <?php
 
-					 	$args = array(  
-					 		'order' => 'DESC',
-							'post_type'	=> 'action'
-						);
+                     $args = array(
+
+                         'orderby' => 'meta_value_num',
+                         'order' => 'ASC',
+                         'meta_key' => 'sort_value' ,
+                         'post_type'	=> 'action'
+                     );
 
 						$the_query = new WP_Query($args);
 

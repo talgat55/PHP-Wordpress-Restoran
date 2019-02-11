@@ -406,7 +406,7 @@ function initModalBlock(){
 	});
 
 
-    jQuery(".block-booking a").click(function() {
+    jQuery(".block-booking a, .order-new-stol").click(function() {
        
 			var windowwidth 	= jQuery(window).width();
 			var modalwidht 	= jQuery('.modal-form').width();
@@ -415,6 +415,9 @@ function initModalBlock(){
 			var windowmodalheight 	= jQuery('.modal-form').height();
 			var redyleft = (windowwidth- modalwidht)/2;
 			var redytop = (windowheight- windowmodalheight)/2;
+
+			jQuery('#responsive-menu-button').trigger('click');
+
 
 		if(windowwidth >= 900){
 
@@ -499,7 +502,7 @@ var owl = jQuery('.slider-home');
 owl.owlCarousel({
     loop:true, 
     items: 1,
-    autoplay:true,
+   // autoplay:true,
 	autoplayTimeout:4000,
     smartSpeed:1000,
     nav: true,  

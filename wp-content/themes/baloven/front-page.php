@@ -5,11 +5,8 @@
 *
 */?>
 <?php get_header(); ?>
- 
 
- 	
 		<?php
-
 
 			$argsslideer = array(
 				'posts_per_page'   => -1,
@@ -19,31 +16,24 @@
 
 			$the_query_slider = new WP_Query($argsslideer);
 		if($the_query_slider->have_posts()):
-echo '<section class="slider-h">
+echo '<section class="slider-h clearfix">
 	<div  class=" owl-carousel owl-theme slider-home" >';
 				while( $the_query_slider->have_posts() ) :
 						$the_query_slider->the_post();
 						$post_id_slider = $the_query_slider->post->ID;
 					$thumb   = get_post_thumbnail_id($post_id_slider);
-					$img_url = wp_get_attachment_url( $thumb,'full'); // Get img URL
+					$img_url = wp_get_attachment_url( $thumb,'slide'); // Get img URL
 					$link = rwmb_meta( 'link-meta', $post_id_slider );
-					$image   = aq_resize( $img_url, 1200, 800, true ); // Resize & crop img 
+				//	$image   = aq_resize( $img_url, 1200, 800, true ); // Resize & crop img
 
-					if($image){ 
 
-					 	echo '<div class="slider-walpaper" style="background: url('.esc_url( $image ).' );">
+					 	echo '<div class="slider-walpaper"  >
 								<div class="slider-overlay"></div>
-								<a href="'.$link.'" target="_blank" class="title-slider" ><h1>'.get_the_title($post_id_slider).'</h1></a>
+								<img src="'.esc_url( $img_url ).'" alt="слайд">
+								<a href="'.$link.'" target="_blank" class="title-slider" ></a>
 						</div>';
 
-					}else{
 
-						echo '<div class="slider-walpaper" style="background: url('.esc_url($img_url ).'  );">
-								<div class="slider-overlay"></div>
-								<a href="'.$link.'"  target="_blank"  class="title-slider" ><h1>'.get_the_title($post_id_slider).'</h1></a>
-						</div>';
-
-					}
 
 				endwhile;
 echo '</div> 

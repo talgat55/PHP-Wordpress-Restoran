@@ -14,6 +14,7 @@ include_once('inc/meta-box/meta-box.php');
 
 
 add_image_size( 'news-size', 300, 300 );
+add_image_size( 'slide', 1280, 720 );
 /*
 * Admin 
 */ 
@@ -475,7 +476,29 @@ function your_prefix_file_demo5( $meta_boxes )
 	);
 	return $meta_boxes;
 }
- 
+
+   add_filter( 'rwmb_meta_boxes', 'your_prefix_file_demo6' );
+function your_prefix_file_demo6( $meta_boxes )
+{
+	$meta_boxes[] = array(
+		'id'         => 'slider',
+		'title'  => __( 'Дополнительные поля', 'your-prefix' ),
+		'post_types' =>'action',
+		'fields' => array(
+
+
+			 array(
+				'id'               => 'sort_value',
+				'name'             => __( 'Значение сортировки', 'your-prefix' ),
+                 'desc'             => __( 'Значение от 10 до и выше. Чем ближе к 10 тем выше будет появляться ', 'your-prefix' ),
+				'type'             => 'text',
+			),
+
+		),
+	);
+	return $meta_boxes;
+}
+
 
 /*
 * Custom excerpt

@@ -75,16 +75,7 @@
 						<?php wp_nav_menu('menu_id=menu-main&menu_class=menu-main-container clearfix&theme_location=main_menu');   ?>
 					</div>
 				<?php endif; ?>
-				<div id="mobile-bar">
 
-					<a class="hamburger hamburger--slider" >
-					  <span class="hamburger-box">
-					    <span class="hamburger-inner"></span>
-					  </span>
-					</a>
-
-
-				</div>
 				<div class="block-booking">
 					<a href="#" class="btn btn-link">
 						Забронировать столик
